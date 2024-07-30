@@ -1,0 +1,127 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: linear-gradient(to right, grey , pink);
+}
+
+.game-container {
+    text-align: center;
+    position: relative;
+}
+
+.status {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.game-mode {
+    margin-bottom: 20px;
+}
+
+.game-mode label {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.game-mode select {
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.game-mode select:hover {
+    background-image: linear-gradient(to right, rgb(215, 202, 202) , rgb(199, 162, 168));
+    transform: scale(1.05);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cell:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #f00;
+}
+
+.cell.o {
+    color: #00f;
+}
+
+.reset-btn {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, grey , rgb(151, 99, 108));
+    color: #fff;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.reset-btn:hover {
+    background-image: linear-gradient(to right, black , rgb(207, 55, 80));
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.winner-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    font-size: 2.5em;
+    font-weight: bold;
+    display: none;
+    z-index: 1000;
+    text-align: center;
+    animation: showPopup 1s ease-in-out;
+}
+
+.winner-popup.show {
+    display: block;
+}
+
+@keyframes showPopup {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
